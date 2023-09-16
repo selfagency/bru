@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to bru 👋</h1>
+<h1 align="center">bru: A Nushell wrapper for Homebrew</h1>
 <p>
   <a href="https://www.npmjs.com/package/bru" target="_blank">
     <img alt="Version" src="https://img.shields.io/npm/v/bru.svg">
@@ -7,8 +7,6 @@
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
 </p>
-
-> Nushell wrapper for Homebrew
 
 ### 🏠 [Homepage](https://github.com/selfagency/bru)
 
