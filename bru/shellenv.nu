@@ -1,3 +1,5 @@
+# Print export statements.
+# Usage: bru shellenv
 export def main [] {
     let res = (^brew shellenv
         | lines

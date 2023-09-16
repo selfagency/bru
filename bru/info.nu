@@ -51,7 +51,7 @@ def info-formula [formula: string, extended?: bool] {
 }
 
 # Display a formula or cask's name and one-line description.
-# Usage: bru desc [formula|cask] [--cask|-c]
+# Usage: bru info desc [formula|cask] [--cask|-c]
 # Options:
 #   --cask, -c: Display info for cask instead of formula
 export def desc [formula: string, --cask (-c)] {

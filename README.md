@@ -18,17 +18,162 @@
 bru [subcommand] [parameters] [options]
 ```
 
+### Subcommands
+
+#### config
+
+Show Homebrew and system configuration info useful for debugging.
+
+**Usage**
+
+`bru config [key]`
+
+**Parameters**
+
+- `key`: The key to show. If not specified, all keys will be shown.
+
+#### deps
+
+Show dependencies for formula/e. When given multiple formulae, show the intersection of dependencies for each formula. If no formula/e is given, show dependencies for all installed formulae.
+
+**Usage**
+
+`bru deps [formula]`
+
+**Parameters**
+
+- `formula`: Formula/e to show dependencies for
+
+##### missing
+
+Check the given formula/e for missing dependencies. If no formulae are provided, check all kegs.
+
+**Usage**
+
+`bru deps missing [formula]`
+
+**Parameters**
+
+- `formula`: Formula/e to check for missing dependencies
+
+##### tree
+
+Show dependencies for formula/e. When given multiple formulae, show the intersection of dependencies for each formula. If no formula/e is given, show dependencies for all installed formulae.
+
+**Usage**
+
+`bru deps tree [formula]`
+
+**Parameters**
+
+- `formula`: Formula/e to show dependencies for
+
+#### doctor
+
+Check your system for potential problems.
+
+**Usage**
+
+`bru doctor`
+
+#### info
+
+Display brief statistics for your Homebrew installation. If a formula or cask is provided, show summary of information about it.
+
+**Usage**
+
+`bru info [formula|cask] [--extended|-e] [--cask|-c]`
+
+**Options**
+
+- `--extended`, `-e`: Display extended info
+- `--cask`, `-c`: Display info for cask instead of formula
+
+##### desc
+
+Display a formula or cask's name and one-line description.
+
+**Usage**
+
+`bru info desc [formula|cask] [--cask|-c]`
+
+**Options**
+
+- `--cask`, `-c`: Display info for cask instead of formula
+
+#### leaves
+
+List installed formulae that are not dependencies of another installed formula or cask.
+
+**Usage**
+
+`bru leaves`
+
+#### list
+
+List all installed formulae and casks.
+
+**Usage**
+
+`brew list [--extended|-e]`
+
+**Options**
+
+- `--extended`, `-e`: Show extended information.
+
+#### outdated
+
+List installed casks and formulae that have an updated version available.
+
+**Usage**
+
+`bru outdated`
+
+#### search
+
+Perform a substring search of cask tokens and formula names for text. If text is flanked by slashes, it is interpreted as a regular expression.
+
+**Usage**
+
+`bru search [terms] [--desc] [--formulae|-f] [--casks|-c]`
+
+**Parameters**
+
+- `terms`: Search terms
+
+**Options**
+
+- `--desc`, `-d`: Search descriptions as well as titles
+- `--formulae`, `-f`: Search formulae
+- `--casks`, `-c`: Search casks
+
+#### services
+
+List information about all managed services for the current user (or root).
+
+**Usage**
+
+`bru services`
+
+#### shellenv
+
+Print export statements.
+
+**Usage**
+
+`bru shellenv`
+
 ## Author
 
 👤 **Daniel Sieradski**
 
-* Website: https://self.agency
-* GitHub: [@selfagency](https://github.com/selfagency)
-* LinkedIn: [@selfagency](https://linkedin.com/in/selfagency)
+- Website: <https://self.agency>
+- GitHub: [@selfagency](https://github.com/selfagency)
+- LinkedIn: [@selfagency](https://linkedin.com/in/selfagency)
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/selfagency/bru/issues). 
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/selfagency/bru/issues).
 
 ## Show your support
 
@@ -40,4 +185,4 @@ Copyright © 2023 [Daniel Sieradski](https://github.com/selfagency).<br />
 This project is [MIT](https://opensource.org/license/mit/) licensed.
 
 ***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+*This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)*

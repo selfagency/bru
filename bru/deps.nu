@@ -25,7 +25,7 @@ export def main [formula?: string] {
 }
 
 # Check the given formula/e for missing dependencies. If no formulae are provided, check all kegs.
-# Usage: bru deps missing $formula
+# Usage: bru deps missing [formula]
 # Options:
 #   formula: Formula/e to check for missing dependencies
 export def missing [formula: string] {
@@ -36,7 +36,7 @@ export def missing [formula: string] {
 }
 
 # Show dependencies for formula/e. When given multiple formulae, show the intersection of dependencies for each formula. If no formula/e is given, show dependencies for all installed formulae.
-# Usage: bru deps tree $formula
+# Usage: bru deps tree [formula]
 # Options:
 #   formula: Formula/e to show dependencies for
 export def tree [formula?: string] {
