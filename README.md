@@ -44,7 +44,7 @@ Show dependencies for formula/e. When given multiple formulae, show the intersec
 
 - `formula`: Formula/e to show dependencies for
 
-##### missing
+#### deps missing
 
 Check the given formula/e for missing dependencies. If no formulae are provided, check all kegs.
 
@@ -56,7 +56,7 @@ Check the given formula/e for missing dependencies. If no formulae are provided,
 
 - `formula`: Formula/e to check for missing dependencies
 
-##### tree
+#### deps tree
 
 Show dependencies for formula/e. When given multiple formulae, show the intersection of dependencies for each formula. If no formula/e is given, show dependencies for all installed formulae.
 
@@ -89,7 +89,7 @@ Display brief statistics for your Homebrew installation. If a formula or cask is
 - `--extended`, `-e`: Display extended info
 - `--cask`, `-c`: Display info for cask instead of formula
 
-##### desc
+#### info desc
 
 Display a formula or cask's name and one-line description.
 
