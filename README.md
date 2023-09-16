@@ -12,15 +12,29 @@
 
 ### 🏠 [Homepage](https://github.com/selfagency/bru)
 
+## Install
+
+```sh
+cd $nu.default-config-path
+git clone git@github.com:selfagency/bru.git
+vi config.nu
+```
+
+Insert the line:
+
+```sh
+use ./bru/bru.nu
+```
+
 ## Usage
 
 ```sh
 bru [subcommand] [parameters] [options]
 ```
 
-### Subcommands
+## Subcommands
 
-#### config
+### `config`
 
 Show Homebrew and system configuration info useful for debugging.
 
@@ -32,7 +46,7 @@ Show Homebrew and system configuration info useful for debugging.
 
 - `key`: The key to show. If not specified, all keys will be shown.
 
-#### deps
+### `deps`
 
 Show dependencies for formula/e. When given multiple formulae, show the intersection of dependencies for each formula. If no formula/e is given, show dependencies for all installed formulae.
 
@@ -44,7 +58,7 @@ Show dependencies for formula/e. When given multiple formulae, show the intersec
 
 - `formula`: Formula/e to show dependencies for
 
-#### deps missing
+### `deps missing`
 
 Check the given formula/e for missing dependencies. If no formulae are provided, check all kegs.
 
@@ -56,7 +70,7 @@ Check the given formula/e for missing dependencies. If no formulae are provided,
 
 - `formula`: Formula/e to check for missing dependencies
 
-#### deps tree
+### `deps tree`
 
 Show dependencies for formula/e. When given multiple formulae, show the intersection of dependencies for each formula. If no formula/e is given, show dependencies for all installed formulae.
 
@@ -68,7 +82,7 @@ Show dependencies for formula/e. When given multiple formulae, show the intersec
 
 - `formula`: Formula/e to show dependencies for
 
-#### doctor
+### `doctor`
 
 Check your system for potential problems.
 
@@ -76,7 +90,7 @@ Check your system for potential problems.
 
 `bru doctor`
 
-#### info
+### `info`
 
 Display brief statistics for your Homebrew installation. If a formula or cask is provided, show summary of information about it.
 
@@ -89,7 +103,7 @@ Display brief statistics for your Homebrew installation. If a formula or cask is
 - `--extended`, `-e`: Display extended info
 - `--cask`, `-c`: Display info for cask instead of formula
 
-#### info desc
+### `info desc`
 
 Display a formula or cask's name and one-line description.
 
@@ -101,7 +115,7 @@ Display a formula or cask's name and one-line description.
 
 - `--cask`, `-c`: Display info for cask instead of formula
 
-#### leaves
+### `leaves`
 
 List installed formulae that are not dependencies of another installed formula or cask.
 
@@ -109,7 +123,7 @@ List installed formulae that are not dependencies of another installed formula o
 
 `bru leaves`
 
-#### list
+### `list`
 
 List all installed formulae and casks.
 
@@ -121,7 +135,7 @@ List all installed formulae and casks.
 
 - `--extended`, `-e`: Show extended information.
 
-#### outdated
+#### `outdated`
 
 List installed casks and formulae that have an updated version available.
 
@@ -129,7 +143,7 @@ List installed casks and formulae that have an updated version available.
 
 `bru outdated`
 
-#### search
+### `search`
 
 Perform a substring search of cask tokens and formula names for text. If text is flanked by slashes, it is interpreted as a regular expression.
 
@@ -147,7 +161,7 @@ Perform a substring search of cask tokens and formula names for text. If text is
 - `--formulae`, `-f`: Search formulae
 - `--casks`, `-c`: Search casks
 
-#### services
+### `services`
 
 List information about all managed services for the current user (or root).
 
@@ -155,13 +169,27 @@ List information about all managed services for the current user (or root).
 
 `bru services`
 
-#### shellenv
+### `shellenv`
 
 Print export statements.
 
 **Usage**
 
 `bru shellenv`
+
+## `Command not found` hook
+
+```sh
+if (not ($env | default false __bru_hooked | get __bru_hooked)) {
+    $env.__bru_hooked = true
+    $env.config = ($env.config
+        | upsert hooks.command_not_found (
+            ($env.config.hooks.command_not_found | default [])
+                | append {|cmd| bru not-found $cmd}
+        )
+    )
+}
+```
 
 ## Author
 
