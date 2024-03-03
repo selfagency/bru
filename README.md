@@ -21,7 +21,7 @@ vi config.nu
 Insert the line:
 
 ```sh
-use ./bru/bru.nu
+use ./bru/bru
 ```
 
 ## Usage

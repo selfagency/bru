@@ -18,17 +18,17 @@ use std log
 # which-formula
 # which-update
 
-export use ./bru/not-found.nu
-export use ./bru/config.nu
-export use ./bru/deps.nu
-export use ./bru/doctor.nu
-export use ./bru/info.nu *
-export use ./bru/leaves.nu
-export use ./bru/list.nu
-export use ./bru/outdated.nu
-export use ./bru/search.nu
-export use ./bru/services.nu
-export use ./bru/shellenv.nu
+export use not-found.nu
+export use config.nu
+export use deps.nu
+export use doctor.nu
+export use info.nu *
+export use leaves.nu
+export use list.nu
+export use outdated.nu
+export use search.nu
+export use services.nu
+export use shellenv.nu
 
 export alias ls = list
 
@@ -63,13 +63,13 @@ export-env {
     $env.HOMEBREW_CELLAR = $"($prefix)/Cellar"
     $env.HOMEBREW_REPOSITORY = $prefix
 
-    if (not 'MANPATH' in $env) {
+    if ('MANPATH' not-in $env) {
         $env.MANPATH = [$"($prefix)/share/man"]
     } else {
         $env.MANPATH | append $"($prefix)/share/man"
     }
 
-    if (not 'INFOPATH' in $env) {
+    if ('INFOPATH' not-in $env) {
         $env.INFOPATH = [$"($prefix)/share/info"]
     } else {
         $env.INFOPATH | append $"($prefix)/share/info"
