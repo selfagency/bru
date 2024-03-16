@@ -1,0 +1,14 @@
+{
+  name: bru
+  version: 0.1.0
+  type: module
+  description: 'A Nushell wrapper for Homebrew'
+  # other fields modeled off package.json
+  license: MIT
+  author: {
+    name: 'Daniel Sieradski'
+    github: selfagency
+    discord: selfagency
+  }
+  repository: 'github:selfagency/bru'
+}
