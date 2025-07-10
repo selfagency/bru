@@ -1,37 +1,37 @@
 # search forumalae
-def search-formulae [terms: any] = {
-    return ([(^brew search --formulae $terms), (char newline)]
+def search-formulae [terms: any] {
+    return ([(^brew search --formulae ...$terms), (char newline)]
         | str join
         | str replace (char newline) $" formula(char newline)" -a
     )
 }
 
 # search casks
-def search-casks [terms: any] = {
-    return ([(^brew search --casks $terms), (char newline)]
+def search-casks [terms: any] {
+    return ([(^brew search --casks ...$terms), (char newline)]
         | str join
         | str replace (char newline) $" cask(char newline)" -a
     )
 }
 
 # search forumalae descriptions
-def search-desc-formulae [terms: any] = {
-    return ((^brew search --formulae --desc $terms --eval-all)
+def search-desc-formulae [terms: any] {
+    return ((^brew search --formulae --desc ...$terms --eval-all)
         | str join
         | str replace (char newline) $" formula(char newline)" -a
     )
 }
 
 # search casks descriptions
-def search-desc-casks [terms: any] = {
-    return ((^brew search --casks --desc $terms --eval-all)
+def search-desc-casks [terms: any] {
+    return ((^brew search --casks --desc ...$terms --eval-all)
         | str join
         | str replace (char newline) $" cask(char newline)" -a
     )
 }
 
 # search all
-def search-all [desc: bool, terms: any] = {
+def search-all [desc: bool, terms: any] {
     mut formulae = null
     mut casks = null
 
