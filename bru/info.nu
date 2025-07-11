@@ -10,7 +10,7 @@ def info-cask [formula: string, extended?: bool] {
                 | update artifacts { |r|
                     (
                         $r.artifacts
-                            | filter { |x| ('app' in $x) or ('binary' in $x) or ('pkg' in $x) }
+                            | where { |x| ('app' in $x) or ('binary' in $x) or ('pkg' in $x) }
                             | each { |x|
                                 if ('app' in $x) {
                                     return ($x.app | first)

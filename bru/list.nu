@@ -17,7 +17,7 @@ export def main [--extended (-e)] {
     mut output = ($formulae
         | merge $casks
         | upsert type { |r| if 'token' in $r { 'cask' } else { 'formula' } }
-        | filter { |r| $r.installed != null }
+        | where { |r| $r.installed != null }
         | update installed { |r|
             if (($r.installed | describe) != 'string') {
                 $r.installed | first | get version
